@@ -1,0 +1,12 @@
+BasedOnStyle: Google
+IndentWidth: 2
+ColumnLimit: 150
+SortIncludes: Never
+PointerAlignment: Right
+ReferenceAlignment: Right
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: false
+AlignAfterOpenBracket: true
+AlignAfterOpenBracket: true 
+SpaceBeforeCpp11BracedList: true
+Cpp11BracedListStyle: false

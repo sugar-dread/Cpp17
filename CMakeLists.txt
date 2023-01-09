@@ -26,7 +26,7 @@ if(FORCE_COLORED_OUTPUT)
   add_compile_options(-fdiagnostics-color=always)
 endif()
 
-add_subdirectory(1_std_any)
-
+# add_subdirectory(1_std_any)
 # add_subdirectory(2_std_invoke)
 # add_subdirectory(3_consexpr_if)
+add_subdirectory(test)

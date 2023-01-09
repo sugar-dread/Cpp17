@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>CppQuiz.org - Question #13</title>
+    <script src="/static/highlight.pack.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/highlight.css">
+    <link type="text/css" rel="stylesheet" href="/static/quiz.css?v=5">
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <script>
+        $(document).ready(function () {
+
+            hljs.initHighlightingOnLoad();
+
+            $("select#result").change(function () {
+                option = $(this).val();
+                if (option === 'OK') {
+                    $("span#output_form_part").show('fast');
+                } else {
+                    $("span#output_form_part").hide('fast');
+                }
+            })
+            $('.confirm_hint').click(function () {
+                return confirm("Are you sure you want to view the hint? Have you really thought through the question?");
+            })
+            $('.dismiss_link').click(function () {
+                $.ajax('/quiz/dismiss_training_msg');
+                $(this).parent().hide(300);
+            });
+            $('.previous_explanation').hide();
+            $('.show_previous_explanation').click(function () {
+                explanation = $('.previous_explanation');
+                explanation.toggle();
+                if (explanation.is(":visible")) {
+                    $('.show_previous_explanation').text(function () { return $(this).text().replace("Show", "Hide"); });
+                } else {
+                    $('.show_previous_explanation').text(function () { return $(this).text().replace("Hide", "Show"); });
+                }
+            });
+            $('p.disabled a').click(function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" type="text/css"
+        href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#ccccff",
+                        "text": "#000000"
+                    },
+                    "button": {
+                        "background": "#aaaaff",
+                        "text": "#000000"
+                    }
+                },
+                "theme": "edgeless",
+                "content": {
+                    "href": "https://cppquiz.org/quiz/about#cookies"
+                }
+            })
+        });
+    </script>
+
+</head>
+
+<body onload="hljs.initHighlightingOnLoad();">
+    <div id="content">
+
+
+        <div id="header">
+            <h1><a href="/">C++ Quiz</a></h1>
+        </div>
+
+        <p id="stats">
+            You've answered 0 of 155 questions correctly. <a href="/quiz/clear">(Clear)</a>
+        </p>
+
+        <div id="main_col">
+
+
+
+
+
+
+
+            <p>
+                <span class="about_the_question"><a href="/quiz/question/13">Question #13</a> Difficulty: <img
+                        src="/static/level-1.png" alt="1"></span>
+            </p>
+            <p>
+                According to the C++17 standard, what is the output of this program?
+            </p>
+
+            <pre>
+    <code class="cpp hljs">#include &lt;iostream&gt;
+
+class A {
+public:
+  A() { std::cout &lt;&lt; &quot;a&quot;; }
+  ~A() { std::cout &lt;&lt; &quot;A&quot;; }
+};
+
+class B {
+public:
+  B() { std::cout &lt;&lt; &quot;b&quot;; }
+  ~B() { std::cout &lt;&lt; &quot;B&quot;; }
+};
+
+class C {
+public:
+  C() { std::cout &lt;&lt; &quot;c&quot;; }
+  ~C() { std::cout &lt;&lt; &quot;C&quot;; }
+};
+
+A a;
+int main() {
+  C c;
+  B b;
+}</code>
+</pre>
+
+
+
+
+
+
+
+
+            <form>
+                <p>
+                    Answer:
+                    <select name="result" id="result">
+
+                        <option value="OK">The program is guaranteed to output:</option>
+
+                        <option value="CE">The program has a compilation error</option>
+
+                        <option value="US">The program is unspecified / implementation defined</option>
+
+                        <option value="UD">The program is undefined</option>
+
+                    </select>
+                    <span id="output_form_part">
+                        <input name="answer" size="4" autocomplete="off">
+                    </span>
+                    <input type="submit" value="Answer" name="did_answer">
+
+
+                </p>
+            </form>
+
+
+            <p>Problems? View a <a href="/quiz/question/13?show_hint=1" class="confirm_hint">hint</a> or try <a
+                    href="/quiz/random">another question</a>.</p>
+
+            <p class="disabled">
+
+                <a href="/quiz/giveup/13">I give up, show me the answer</a>
+
+                (make 3 more attempts first).
+
+            </p>
+
+
+
+
+
+        </div>
+        <div id="right_col">
+            <h4>Mode :
+
+                Training
+            </h4>
+            <p>
+                You are currently in training mode, answering random questions.
+                Why not <a href="/quiz/start">Start a new quiz</a>?
+                Then you can boast about your score, and invite your friends.
+            </p>
+
+
+
+            <h4>Contribute</h4>
+            <p>
+                <a href="/quiz/create">Create your own!</a>
+            </p>
+            <h4>Android app</h4>
+            <p>
+                Get Sergey Vasilchenko's <a
+                    href="https://play.google.com/store/apps/details?id=com.vsklamm.cppquiz">CppQuiz Android app</a>.
+            <p>
+        </div>
+        <hr class=clear>
+
+        <div id="footer">
+            <p>
+
+                <a href="/quiz/about/">About</a> |
+                <a href="/quiz/about">Help/FAQ</a> |
+                <a href="https://github.com/knatten/cppquiz/issues">Report issues</a> |
+                <a href="https://github.com/knatten/cppquiz/blob/master/CODE_OF_CONDUCT.md">CoC</a> |
+                <a href="https://twitter.com/intent/follow?screen_name=CppQuiz" class="twitter-follow"><img
+                        src="/static//twitter.png" height="9" alt="Twitter"> Follow @CppQuiz</a> |
+                © <a href="http://knatten.org">Anders Schau Knatten</a> 2022.
+            </p>
+            <p>
+                Thanks to <a href="http://www.pvv.org/~oma/cv.html">Olve Maudal</a>, several people in the <a
+                    href="http://accu.org/">ACCU</a> and all other contributers for valuable input!
+            </p>
+            <p>
+                Contents licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                    International License</a>.
+            </p>
+        </div>
+    </div>
+    <script>
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-40159458-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+
+</html>
