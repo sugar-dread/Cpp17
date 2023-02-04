@@ -1,11 +1,10 @@
+---
 BasedOnStyle: Google
+SortIncludes: true
 IndentWidth: 2
 ColumnLimit: 200
-SortIncludes: CaseInsensitive
 IncludeBlocks: Preserve
 PointerAlignment: Left
-ReferenceAlignment: Left
-SpaceAroundPointerQualifiers: Default
 SpaceBeforeAssignmentOperators: true
 AlignAfterOpenBracket: true
 SpaceBeforeCpp11BracedList: true
@@ -13,8 +12,3 @@ Cpp11BracedListStyle: false
 SpacesInParentheses: true
 SpacesInAngles: false
 DerivePointerAlignment: false
-IndentAccessModifiers: true
-
-
-
-
